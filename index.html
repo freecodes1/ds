@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12 Copyable Text Boxes</title>
+    <style>
+        /* Basic styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Creates a responsive 3 or 4 column layout */
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .text-box-wrapper {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border: 1px solid #ddd;
+        }
+
+        .text-content {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: #e9e9e9;
+            white-space: pre-wrap;
+            border-radius: 4px;
+            min-height: 80px; /* Ensure boxes look uniform */
+            text-align: left;
+            font-size: 0.9em;
+        }
+
+        .copy-btn {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s;
+            width: 100%; /* Full width button */
+            margin-bottom: 5px;
+        }
+
+        .copy-btn:hover {
+            background-color: #0056b3;
+        }
+
+        .message {
+            font-size: 0.8em;
+            color: green;
+            height: 15px; /* Reserve space for the message */
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Select and Copy a Text Option</h1>
+
+    <div class="container">
+        <div class="text-box-wrapper">
+            <h3>Box 1</h3>
+            <div id="text1" class="text-content">library_data = {
+"M001":["Book A","Book B"],"M002":["Book C"],"M003":[],
+"M004":["Book A","Book A"],"M005":[], "M006":["Book B","Book D"]
+}
+
+# Average books borrowed
+avg = sum(len(b) for b in library_data.values()) / len(library_data)
+print(avg)
+
+# Count book frequency
+from collections import Counter
+all_books = [b for books in library_data.values() for b in books]
+book_count = Counter(all_books)
+
+# Most & least borrowed
+most = max(book_count, key=book_count.get)
+least = min(book_count, key=book_count.get)
+
+print(most)
+print(least)
+print("most frequently borrowed", most)
+</div>
+            <button class="copy-btn" onclick="copyText('text1')">Copy Box 1</button>
+            <p id="message1" class="message"></p>
+        </div>
+
+        <div class="text-box-wrapper">
+            <h3>Box 2</h3>
+            <div id="text2" class="text-content">customer_id = [100, 102, 101]
+
+def linear_search(customer_list, target_id):
+    for i in range(len(customer_list)):
+        if customer_id[i] == target_id:
+            return True
+    return False
+    
+def binary_search(sorted_list, target_id):
+    low = 0
+    high = len(sorted_list) - 1
+    
+    while low <= high:
+        mid = (low + high)
+        if sorted_list[mid] == target_id:
+            return True
+        elif sorted_list[mid] < target_id:
+            low = mid + 1
+        else:
+            high = mid -1
+    return False
+    
+search_id = int(input("Enter the customer id: "))
+
+found_id = linear_search(customer_id, search_id)
+if found_id:
+    print("Liner search : Found")
+else:
+    print("Liner search : not Found")
+
+sorted_ids = sorted(customer_id)
+
+found_ids = binary_search(sorted_ids, search_id)
+if found_ids:
+    print("binay search : Found")
+else:
+    print("binay search : not Found")
+    </div>
+            <button class="copy-btn" onclick="copyText('text2')">Copy Box 2</button>
+            <p id="message2" class="message"></p>
+        </div>
+
+        <div class="text-box-wrapper">
+            <h3>Box 3</h3>
+            <div id="text3" class="text-content">salaries = [10000, 12000, 14000, 9000, 14000, 98712, 461452, 4826]
+
+def selection_sort(salary_list):
+    n = len(salary_list)
+    for i in range(n):
+        min_index = i
+        for j in range(i + 1, n ):
+            if salary_list[j] < salary_list[min_index]:
+                min_index + j
+        salary_list[i], salary_list[min_index] = salary_list[min_index], salary_list[i]
+    return salary_list
+    
+def bubble_sort(salary_list):
+    n = len(salary_list)
+    for i in range(n):
+        min_index = i
+        for j in range(0, n - i - 1):
+            if salary_list[j] > salary_list[j +1]:
+                salary_list[j], salary_list[j +1]  = salary_list[j +1], salary_list[j]
+    return salary_list
+
+salaries_selection = selection_sort(salaries.copy())
+print(salaries_selection [-5:][::-1])
+
+salaries_bubble = bubble_sort(salaries.copy())
+print(salaries_bubble [-5:][::-1])</div>
+            <button class="copy-btn" onclick="copyText('text3')">Copy Box 3</button>
+            <p id="message3" class="message"></p>
+        </div>
+
+        <div class="text-box-wrapper">
+            <h3>Box 4</h3>
+            <div id="text4" class="text-content"># Undo/Redo System in Google Colab Environment
+
+class TextEditor:
+    def __init__(self):
+        self.document = ""
+        self.undo_stack = []
+        self.redo_stack = []
+
+    def make_change(self, change):
+        self.undo_stack.append(self.document)
+        self.document += change
+        self.redo_stack.clear()
+        print("\nChange made.")
+        self.display_state()
+
+    def undo_action(self):
+        if self.undo_stack:
+            self.redo_stack.append(self.document)
+            self.document = self.undo_stack.pop()
+            print("\nUndo performed.")
+        else:
+            print("\nNo more actions to undo.")
+        self.display_state()
+
+    def redo_action(self):
+        if self.redo_stack:
+            self.undo_stack.append(self.document)
+            self.document = self.redo_stack.pop()
+            print("\nRedo performed.")
+        else:
+            print("\nNo more actions to redo.")
+        self.display_state()
+
+    def display_state(self):
+        print("Current Document State: '" + self.document + "'")
+
+    def run_editor(self):
+        while True:
+            print("\n--- MENU ---")
+            print("1. Make a Change")
+            print("2. Undo")
+            print("3. Redo")
+            print("4. Display Document State")
+            print("5. Exit")
+            choice = input("Enter your choice: ")
+
+            if choice == '1':
+                change = input("Enter text to add: ")
+                self.make_change(change)
+            elif choice == '2':
+                self.undo_action()
+            elif choice == '3':
+                self.redo_action()
+            elif choice == '4':
+                self.display_state()
+            elif choice == '5':
+                print("Exiting...")
+                break
+            else:
+                print("Invalid choice. Try again.")
+
+# Run the editor
+editor = TextEditor()
+editor.run_editor()</div>
+            <button class="copy-btn" onclick="copyText('text4')">Copy Box 4</button>
+            <p id="message4" class="message"></p>
+        </div>
+
+        <div class="text-box-wrapper">
+            <h3>Box 5</h3>
+            <div id="text5" class="text-content"># Real-Time Event Processing System using Queue
+
+# Using simple list as a queue
+event_queue = []
+
+def add_event(event):
+    event_queue.append(event)
+    print(f"Event added to the queue.",event)
+
+def process_next_event():
+    if event_queue:
+        event = event_queue.pop(0)
+        print(f"Processed event: ",event)
+    else:
+        print("No events to process.")
+
+def display_pending_events():
+    if event_queue:
+        print("Pending Events:")
+        for idx, event in enumerate(event_queue, 1):
+            print(f"{idx}. {event}")
+    else:
+        print("No pending events.")
+
+def cancel_event(event_name):
+    if event_name in event_queue:
+        event_queue.remove(event_name)
+        print(f"Event has been canceled.",event_name)
+    else:
+        print(f"Event not found or already processed.",event_name)
+
+def menu():
+    while True:
+        print("\n--- EVENT MENU ---")
+        print("1. Add Event")
+        print("2. Process Next Event")
+        print("3. Display Pending Events")
+        print("4. Cancel an Event")
+        print("5. Exit")
+
+        choice = input("Enter your choice: ")
+
+        if choice == '1':
+            event = input("Enter event name: ")
+            add_event(event)
+        elif choice == '2':
+            process_next_event()
+        elif choice == '3':
+            display_pending_events()
+        elif choice == '4':
+            event_name = input("Enter event name to cancel: ")
+            cancel_event(event_name)
+        elif choice == '5':
+            print("Exiting Event Processing System.")
+            break
+        else:
+            print("Try again")
+
+# Run the menu
+menu()
+</div>
+            <button class="copy-btn" onclick="copyText('text5')">Copy Box 5</button>
+            <p id="message5" class="message"></p>
+        </div>
+
+        <div class="text-box-wrapper">
+            <h3>Box 6</h3>
+            <div id="text6" class="text-content"># Student Record Management System using Singly Linked List
+
+class StudentNode:
+    def __init__(self, roll_no, name, marks):
+        self.roll_no = roll_no
+        self.name = name
+        self.marks = marks
+        self.next = None
+
+class StudentLinkedList:
+    def __init__(self):
+        self.head = None
+
+    def add_student(self, roll_no, name, marks):
+        new_node = StudentNode(roll_no, name, marks)
+        if self.head is None:
+            self.head = new_node
+        else:
+            current = self.head
+            while current.next:
+                current = current.next
+            current.next = new_node
+        print("✅ Student record added.")
+
+    def delete_student(self, roll_no):
+        current = self.head
+        prev = None
+        while current:
+            if current.roll_no == roll_no:
+                if prev:
+                    prev.next = current.next
+                else:
+                    self.head = current.next
+                print("✅ Student record deleted.")
+                return
+            prev = current
+            current = current.next
+        print("⚠️ Student not found.")
+
+    def update_student(self, roll_no, new_name, new_marks):
+        current = self.head
+        while current:
+            if current.roll_no == roll_no:
+                current.name = new_name
+                current.marks = new_marks
+                print("✅ Student record updated.")
+                return
+            current = current.next
+        print("⚠️ Student not found.")
+
+    def search_student(self, roll_no):
+        current = self.head
+        while current:
+            if current.roll_no == roll_no:
+                print(f"🔍 Found: Roll No: {current.roll_no}, Name: {current.name}, Marks: {current.marks}")
+                return
+            current = current.next
+        print("⚠️ Student not found.")
+
+    def display_students(self, sort_by="roll_no", ascending=True):
+        students = []
+        current = self.head
+        while current:
+            students.append((current.roll_no, current.name, current.marks))
+            current = current.next
+
+        if sort_by == "roll_no":
+            students.sort(key=lambda x: x[0], reverse=not ascending)
+        elif sort_by == "marks":
+            students.sort(key=lambda x: x[2], reverse=not ascending)
+
+        if not students:
+            print("⚠️ No records to display.")
+            return
+
+        print("\n📋 Student Records:")
+        for s in students:
+            print(f"Roll No: {s[0]}, Name: {s[1]}, Marks: {s[2]}")
+
+# Menu for interaction
+def menu():
+    system = StudentLinkedList()
+    while True:
+        print("\n--- Student Record Management Menu ---")
+        print("1. Add Student")
+        print("2. Delete Student")
+        print("3. Update Student")
+        print("4. Search Student")
+        print("5. Display All Students")
+        print("6. Exit")
+
+        choice = input("Enter your choice (1-6): ")
+
+        if choice == '1':
+            roll = int(input("Enter Roll No: "))
+            name = input("Enter Name: ")
+            marks = int(input("Enter Marks: "))
+            system.add_student(roll, name, marks)
+        elif choice == '2':
+            roll = int(input("Enter Roll No to Delete: "))
+            system.delete_student(roll)
+        elif choice == '3':
+            roll = int(input("Enter Roll No to Update: "))
+            name = input("Enter New Name: ")
+            marks = int(input("Enter New Marks: "))
+            system.update_student(roll, name, marks)
+        elif choice == '4':
+            roll = int(input("Enter Roll No to Search: "))
+            system.search_student(roll)
+        elif choice == '5':
+            sort_key = input("Sort by 'roll_no' or 'marks': ").strip()
+            order = input("Order 'asc' or 'desc': ").strip()
+            ascending = True if order == 'asc' else False
+            system.display_students(sort_by=sort_key, ascending=ascending)
+        elif choice == '6':
+            print("👋 Exiting Student Record Management System.")
+            break
+        else:
+            print("❌ Invalid choice. Try again.")
+
+# Start the system
+menu()
+</div>
+            <button class="copy-btn" onclick="copyText('text6')">Copy Box 6</button>
+            <p id="message6" class="message"></p>
+        </div>
+
+        <div class="text-box-wrapper">
+            <h3>Box 7</h3>
+            <div id="text7" class="text-content">class HashTable:
+    def __init__(self, size=10):
+        self.size = size
+        self.table = [[] for _ in range(size)]  # List of empty lists (chaining)
+
+    def _hash_function(self, key):
+        return key % self.size
+
+    def insert(self, key, value):
+        index = self._hash_function(key)
+        # Check if key already exists and update
+        for pair in self.table[index]:
+            if pair[0] == key:
+                pair[1] = value
+                print(f"Updated key {key} with value {value}")
+                return
+        # Else insert new key-value pair
+        self.table[index].append([key, value])
+        print(f"Inserted key {key} with value {value}")
+
+    def search(self, key):
+        index = self._hash_function(key)
+        for pair in self.table[index]:
+            if pair[0] == key:
+                return pair[1]
+        return None  # Not found
+
+    def delete(self, key):
+        index = self._hash_function(key)
+        for i, pair in enumerate(self.table[index]):
+            if pair[0] == key:
+                del self.table[index][i]
+                print(f"Deleted key {key}")
+                return
+        print(f"Key {key} not found for deletion.")
+
+    def display(self):
+        print("Hash Table:")
+        for i, bucket in enumerate(self.table):
+            print(f"Index {i}: {bucket}")
+
+ht = HashTable()
+
+ht.insert(15, "apple")
+ht.insert(25, "banana")  # Collision with 15
+ht.insert(35, "cherry")  # Collision again
+
+print("Search 25:", ht.search(25))  # Output: banana
+ht.delete(25)
+print("Search 25 after deletion:", ht.search(25))  # Output: None
+
+ht.display()
+</div>
+            <button class="copy-btn" onclick="copyText('text7')">Copy Box 7</button>
+            <p id="message7" class="message"></p>
+        </div>
+
+        <div class="text-box-wrapper">
+            <h3>Box 8</h3>
+            <div id="text8" class="text-content">class LinearProbingHashTable:
+    def __init__(self, size=10):
+        self.size = size
+        self.table = [None] * size
+        self.DELETED = "<DELETED>"
+
+    def _hash_function(self, key):
+        return key % self.size
+
+    def insert(self, key):
+        index = self._hash_function(key)
+        original_index = index
+        while self.table[index] not in (None, self.DELETED):
+            if self.table[index] == key:
+                print(f"Key {key} already exists at index {index}.")
+                return
+            index = (index + 1) % self.size
+            if index == original_index:
+                print("Hash table is full. Cannot insert.")
+                return
+        self.table[index] = key
+        print(f"Inserted key {key} at index {index}.")
+
+    def search(self, key):
+        index = self._hash_function(key)
+        original_index = index
+        while self.table[index] is not None:
+            if self.table[index] == key:
+                print(f"Key {key} found at index {index}.")
+                return index
+            index = (index + 1) % self.size
+            if index == original_index:
+                break
+        print(f"Key {key} not found.")
+        return None
+
+    def delete(self, key):
+        index = self.search(key)
+        if index is not None:
+            self.table[index] = self.DELETED
+            print(f"Key {key} deleted from index {index}.")
+
+    def display(self):
+        print("Hash Table:")
+        for i, key in enumerate(self.table):
+            print(f"Index {i}: {key}")
+ht = LinearProbingHashTable()
+
+ht.insert(10)
+ht.insert(20)
+ht.insert(30)  # Should go to different slots
+ht.insert(20)  # Duplicate
+
+ht.display()
+
+ht.search(20)
+ht.search(99)
+
+ht.delete(20)
+ht.search(20)
+
+ht.display()
+
+
+</div>
+            <button class="copy-btn" onclick="copyText('text8')">Copy Box 8</button>
+            <p id="message8" class="message"></p>
+        </div>
+
+        <div class="text-box-wrapper">
+            <h3>Box 9</h3>
+            <div id="text9" class="text-content">class Bucket:
+    def __init__(self, depth, size):
+        self.depth = depth
+        self.size = size
+        self.items = {}  # Dictionary for storing key-value pairs
+
+    def is_full(self):
+        return len(self.items) >= self.size
+
+    def insert(self, key, value):
+        self.items[key] = value
+
+    def delete(self, key):
+        if key in self.items:
+            del self.items[key]
+
+    def search(self, key):
+        return self.items.get(key, None)
+
+class ExtendibleHashTable:
+    def __init__(self, bucket_size=2):
+        self.global_depth = 1
+        self.bucket_size = bucket_size
+        self.directory = [Bucket(self.global_depth, bucket_size) for _ in range(2)]
+
+    def _hash(self, key):
+        return hash(key) & ((1 << self.global_depth) - 1)
+
+    def insert(self, key, value):
+        index = self._hash(key)
+        bucket = self.directory[index]
+
+        if key in bucket.items or not bucket.is_full():
+            bucket.insert(key, value)
+            print(f"Inserted ({key}, {value}) into bucket {index}")
+            return
+
+        # Bucket is full, need to split
+        print(f"Bucket {index} is full. Splitting...")
+        self._split_bucket(index)
+        # Re-insert the key
+        self.insert(key, value)
+
+    def _split_bucket(self, index):
+        old_bucket = self.directory[index]
+        local_depth = old_bucket.depth
+        old_bucket.depth += 1
+
+        if old_bucket.depth > self.global_depth:
+            self._double_directory()
+
+        new_bucket = Bucket(old_bucket.depth, self.bucket_size)
+
+        # Update directory to point to new buckets
+        for i in range(len(self.directory)):
+            if self.directory[i] is old_bucket and ((i >> local_depth) & 1):
+                self.directory[i] = new_bucket
+
+        # Rehash the keys in the old bucket
+        all_items = list(old_bucket.items.items())
+        old_bucket.items.clear()
+
+        for k, v in all_items:
+            self.insert(k, v)  # Will hash and reinsert into appropriate bucket
+
+    def _double_directory(self):
+        print("Doubling directory size.")
+        self.directory += self.directory
+        self.global_depth += 1
+
+    def search(self, key):
+        index = self._hash(key)
+        value = self.directory[index].search(key)
+        if value is not None:
+            print(f"Found key {key} with value {value} in bucket {index}")
+        else:
+            print(f"Key {key} not found.")
+        return value
+
+    def delete(self, key):
+        index = self._hash(key)
+        bucket = self.directory[index]
+        if key in bucket.items:
+            bucket.delete(key)
+            print(f"Key {key} deleted from bucket {index}")
+        else:
+            print(f"Key {key} not found for deletion.")
+
+    def display(self):
+        seen = set()
+        print("\nDirectory:")
+        for i, bucket in enumerate(self.directory):
+            if id(bucket) not in seen:
+                seen.add(id(bucket))
+                print(f"Bucket {i} (depth={bucket.depth}): {bucket.items}")
+                
+ht = ExtendibleHashTable(bucket_size=2)
+
+ht.insert(1, "One")
+ht.insert(2, "Two")
+ht.insert(3, "Three")
+ht.insert(4, "Four")
+ht.insert(5, "Five")
+
+ht.display()
+
+ht.search(3)
+ht.delete(3)
+ht.search(3)
+
+ht.display()
+</div>
+            <button class="copy-btn" onclick="copyText('text9')">Copy Box 9</button>
+            <p id="message9" class="message"></p>
+        </div>
+
+        <div class="text-box-wrapper">
+            <h3>Box 10</h3>
+            <div id="text10" class="text-content"># -*- coding: utf-8 -*-
+"""1 dfs&bfs.ipynb
+
+Automatically generated by Colab.
+
+Original file is located at
+    https://colab.research.google.com/drive/1qSNYKYHRmBrZq9ZkyhVlxe_7OkM4FToN
+"""
+
+#Asssignment 1: BFS and DFS
+
+# Group D Assignment 1: BFS & DFS
+from collections import deque
+
+# Mapping location names to indices for matrix representation
+locations = ['A', 'B', 'C', 'D']
+location_index = {name: idx for idx, name in enumerate(locations)}
+
+# ------------------------------
+# DFS using Adjacency Matrix
+# ------------------------------
+
+# Graph represented as adjacency matrix
+adj_matrix = [
+    # A  B  C  D
+    [ 0, 1, 1, 0],  # A
+    [ 1, 0, 0, 1],  # B
+    [ 1, 0, 0, 1],  # C
+    [ 0, 1, 1, 0]   # D
+]
+
+def dfs_matrix(start):
+    visited = [False] * len(locations)
+    result = []
+
+    def dfs(node):
+        visited[node] = True
+        result.append(locations[node])
+        for neighbor in range(len(adj_matrix)):
+            if adj_matrix[node][neighbor] == 1 and not visited[neighbor]:
+                dfs(neighbor)
+
+    dfs(location_index[start])
+    return result
+
+# ------------------------------
+# BFS using Adjacency List
+# ------------------------------
+
+# Graph represented as adjacency list
+adj_list = {
+    'A': ['B', 'C'],
+    'B': ['A', 'D'],
+    'C': ['A', 'D'],
+    'D': ['B', 'C']
+}
+
+def bfs_list(start):
+    visited = set()
+    queue = deque([start])
+    result = []
+
+    while queue:
+        node = queue.popleft()
+        if node not in visited:
+            visited.add(node)
+            result.append(node)
+            for neighbor in adj_list[node]:
+                if neighbor not in visited:
+                    queue.append(neighbor)
+    return result
+
+# ------------------------------
+# Run the algorithms
+# ------------------------------
+def menu():
+    print("\n===== Menu =====")
+    print("1. DFS")
+    print("2. BFS")
+    print("3. Exit")
+
+while True:
+  menu()
+  choice = input("Enter your choice: ")
+
+  if choice == '1':
+    start_location = 'A'
+    dfs_result = dfs_matrix(start_location)
+    print("DFS Traversal (using adjacency matrix):", dfs_result)
+
+  if choice == '2':
+    start_location = 'A'
+    bfs_result = bfs_list(start_location)
+    print("BFS Traversal (using adjacency list):", bfs_result)
+
+  if choice == '3':
+    break</div>
+            <button class="copy-btn" onclick="copyText('text10')">Copy Box 10</button>
+            <p id="message10" class="message"></p>
+        </div>
+
+        <div class="text-box-wrapper">
+            <h3>Box 11</h3>
+            <div id="text11" class="text-content"># Binary Search Tree implementation in Python
+
+class Node:
+    def __init__(self, key):
+        self.key = key
+        self.left = None
+        self.right = None
+
+
+class BST:
+    def __init__(self):
+        self.root = None
+
+    # --- INSERTION ---
+    def insert(self, root, key):
+        if root is None:
+            return Node(key)
+        if key < root.key:
+            root.left = self.insert(root.left, key)
+        elif key > root.key:
+            root.right = self.insert(root.right, key)
+        return root
+
+    # --- SEARCH ---
+    def search(self, root, key):
+        if root is None or root.key == key:
+            return root
+        if key < root.key:
+            return self.search(root.left, key)
+        else:
+            return self.search(root.right, key)
+
+    # --- INORDER DISPLAY (sorted order) ---
+    def inorder(self, root):
+        if root:
+            self.inorder(root.left)
+            print(root.key, end=" ")
+            self.inorder(root.right)
+
+    # --- DELETION ---
+    def delete(self, root, key):
+        if root is None:
+            return root
+
+        # Find the node to delete
+        if key < root.key:
+            root.left = self.delete(root.left, key)
+        elif key > root.key:
+            root.right = self.delete(root.right, key)
+        else:
+            # Node with only one child or no child
+            if root.left is None:
+                return root.right
+            elif root.right is None:
+                return root.left
+
+            # Node with two children:
+            # Get inorder successor (smallest in the right subtree)
+            root.key = self.min_value_node(root.right).key
+            root.right = self.delete(root.right, root.key)
+        return root
+
+    def min_value_node(self, node):
+        current = node
+        while current.left is not None:
+            current = current.left
+        return current
+
+
+# --- MAIN PROGRAM ---
+if __name__ == "__main__":
+    bst = BST()
+    root = None
+
+    # Insert nodes
+    data = [50, 30, 70, 20, 40, 60, 80]
+    for val in data:
+        root = bst.insert(root, val)
+
+    print("Inorder traversal of BST:")
+    bst.inorder(root)
+
+    # Search a value
+    key = 40
+    print(f"\n\nSearching for {key} in BST:")
+    result = bst.search(root, key)
+    if result:
+        print(f"{key} found in BST.")
+    else:
+        print(f"{key} not found in BST.")
+
+    # Delete a value
+    delete_key = 30
+    print(f"\nDeleting {delete_key} from BST...")
+    root = bst.delete(root, delete_key)
+
+    print("Inorder traversal after deletion:")
+    bst.inorder(root)
+<div>
+            <button class="copy-btn" onclick="copyText('text11')">Copy Box 11</button>
+            <p id="message11" class="message"></p>
+        </div>
+
+        <div class="text-box-wrapper">
+            <h3>Box 12</h3>
+            <div id="text12" class="text-content">class Node:
+    def __init__(self, city, population):
+        self.city = city
+        self.population = population
+        self.left = None
+        self.right = None
+
+
+class CityBST:
+    def __init__(self):
+        self.root = None
+
+    # --- INSERTION ---
+    def insert(self, root, city, population):
+        if root is None:
+            return Node(city, population)
+
+        if city.lower() < root.city.lower():
+            root.left = self.insert(root.left, city, population)
+        elif city.lower() > root.city.lower():
+            root.right = self.insert(root.right, city, population)
+        else:
+            print(f"{city} already exists! Updating population...")
+            root.population = population
+        return root
+
+    # --- SEARCH (returns node and comparison count) ---
+    def search(self, root, city):
+        comparisons = 0
+        current = root
+        while current:
+            comparisons += 1
+            if city.lower() == current.city.lower():
+                return current, comparisons
+            elif city.lower() < current.city.lower():
+                current = current.left
+            else:
+                current = current.right
+        return None, comparisons
+
+    # --- UPDATE POPULATION ---
+    def update_population(self, root, city, new_pop):
+        node, comp = self.search(root, city)
+        if node:
+            node.population = new_pop
+            print(f"Updated {city}'s population to {new_pop}. (Comparisons: {comp})")
+        else:
+            print(f"{city} not found in records. (Comparisons: {comp})")
+
+    # --- DELETE CITY ---
+    def delete(self, root, city):
+        if root is None:
+            return root
+
+        if city.lower() < root.city.lower():
+            root.left = self.delete(root.left, city)
+        elif city.lower() > root.city.lower():
+            root.right = self.delete(root.right, city)
+        else:
+            # Node to delete found
+            if root.left is None:
+                return root.right
+            elif root.right is None:
+                return root.left
+
+            # Node with two children
+            temp = self.min_value_node(root.right)
+            root.city, root.population = temp.city, temp.population
+            root.right = self.delete(root.right, temp.city)
+
+        return root
+
+    def min_value_node(self, node):
+        current = node
+        while current.left is not None:
+            current = current.left
+        return current
+
+    # --- DISPLAY ASCENDING (A → Z) ---
+    def display_ascending(self, root):
+        if root:
+            self.display_ascending(root.left)
+            print(f"{root.city} → {root.population}")
+            self.display_ascending(root.right)
+
+    # --- DISPLAY DESCENDING (Z → A) ---
+    def display_descending(self, root):
+        if root:
+            self.display_descending(root.right)
+            print(f"{root.city} → {root.population}")
+            self.display_descending(root.left)
+
+
+# --- MAIN PROGRAM ---
+if __name__ == "__main__":
+    bst = CityBST()
+    root = None
+
+    while True:
+        print("\n=== City Population Management System ===")
+        print("1. Add / Update City")
+        print("2. Delete City")
+        print("3. Search City")
+        print("4. Update Population")
+        print("5. Display Cities (Ascending)")
+        print("6. Display Cities (Descending)")
+        print("7. Exit")
+
+        choice = input("Enter your choice: ")
+
+        if choice == "1":
+            city = input("Enter city name: ")
+            pop = int(input("Enter population: "))
+            root = bst.insert(root, city, pop)
+
+        elif choice == "2":
+            city = input("Enter city name to delete: ")
+            root = bst.delete(root, city)
+            print(f"{city} deleted (if existed).")
+
+        elif choice == "3":
+            city = input("Enter city name to search: ")
+            node, comp = bst.search(root, city)
+            if node:
+                print(f"{city} found with population {node.population}.")
+            else:
+                print(f"{city} not found.")
+            print(f"Comparisons made: {comp}")
+
+        elif choice == "4":
+            city = input("Enter city name: ")
+            pop = int(input("Enter new population: "))
+            bst.update_population(root, city, pop)
+
+        elif choice == "5":
+            print("\nCities in Ascending Order:")
+            bst.display_ascending(root)
+
+        elif choice == "6":
+            print("\nCities in Descending Order:")
+            bst.display_descending(root)
+
+        elif choice == "7":
+            print("Exiting program.")
+            break
+
+        else:
+            print("Invalid choice. Please try again.")
+</div>
+            <button class="copy-btn" onclick="copyText('text12')">Copy Box 12</button>
+            <p id="message12" class="message"></p>
+        </div>
+
+    </div>
+
+    <script>
+        function copyText(elementId) {
+            // 1. Get the text content from the specified element ID
+            const textElement = document.getElementById(elementId);
+            const textToCopy = textElement.innerText;
+
+            // 2. Determine the corresponding message ID
+            const messageId = 'message' + elementId.replace('text', '');
+            const messageElement = document.getElementById(messageId);
+
+            // 3. Use the modern Clipboard API to copy the text
+            navigator.clipboard.writeText(textToCopy)
+                .then(() => {
+                    // Success: Display a confirmation message
+                    messageElement.textContent = 'Copied! ✅';
+
+                    // Clear the message after a short delay
+                    setTimeout(() => {
+                        messageElement.textContent = '';
+                    }, 2000);
+                })
+                .catch(err => {
+                    // Error: Display an error message
+                    console.error('Could not copy text: ', err);
+                    messageElement.textContent = 'Failed to copy.';
+                });
+        }
+    </script>
+</body>
+</html>
